@@ -244,12 +244,19 @@ class DanbooruScraper:
         soup = BeautifulSoup(response.text, 'html.parser')
         
         # Extract image URL
+        # Try original link first, fallback to img#image if not available
         image_link = soup.select_one('.image-view-original-link')
         image_url = None
         if image_link:
             image_url = image_link.get('href')
             if image_url and not image_url.startswith('http'):
                 image_url = urljoin(BASE_URL, image_url)
+        else:
+            # Fallback to img#image src attribute when original link is not available
+            # The src attribute is already a complete URL, no need to join
+            img_element = soup.select_one('img#image')
+            if img_element:
+                image_url = img_element.get('src')
         
         # Extract tags by category
         tags = {
