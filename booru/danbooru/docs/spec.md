@@ -8,6 +8,6 @@
    1. 图片资源在`.image-view-original-link`的`a`元素的`href`属性内，比如`https://cdn.donmai.us/original/1c/a6/__honma_meiko_ano_hi_mita_hana_no_namae_wo_bokutachi_wa_mada_shiranai_drawn_by_maruyo__1ca68fe1a9dfb3d8857c83734b7e00c2.jpg`，
    2. tags在`#tag-list`的`section`元素下，分为`Artist`, `Copyright`, `General`, `Meta`四个类别
 7. 注意参考[globalSpec.md](../../../globalSpec.md)的开发规范：
-   1. 给每个tags创建一个task foler
+   1. 给每个task创建一个task foler
    2. 注意`第一次执行`，`从断点执行`，`重新执行一个已完成任务`三种场景下的业务逻辑
    3. 注意控制请求间隔，避免触发Danbooru的防火墙机制

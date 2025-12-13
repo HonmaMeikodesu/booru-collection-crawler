@@ -1,0 +1,118 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Zerochan: New Task (Debug)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/booru/zerochan/zerochan_scraper.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--mode", "new",
+                "--keywords", "Honma Meiko",
+                "--storage-path", "${workspaceFolder}/debug_downloads",
+                "--throttle", "2.5",
+                "--username", "${input:username}",
+                "--password", "${input:password}"
+            ],
+            "justMyCode": false,
+            "cwd": "${workspaceFolder}/booru/zerochan"
+        },
+        {
+            "name": "Zerochan: New Task with Proxy",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/booru/zerochan/zerochan_scraper.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--mode", "new",
+                "--keywords", "Honma Meiko",
+                "--storage-path", "${workspaceFolder}/debug_downloads",
+                "--throttle", "2.5",
+                "--proxy", "http://127.0.0.1:7890",
+                "--username", "${input:username}",
+                "--password", "${input:password}"
+            ],
+            "justMyCode": false,
+            "cwd": "${workspaceFolder}/booru/zerochan"
+        },
+        {
+            "name": "Zerochan: Resume Task",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/booru/zerochan/zerochan_scraper.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--mode", "resume",
+                "--task-path", "${workspaceFolder}/debug_downloads/honma_meiko",
+                "--throttle", "2.5",
+                "--username", "${input:username}",
+                "--password", "${input:password}"
+            ],
+            "justMyCode": false,
+            "cwd": "${workspaceFolder}/booru/zerochan"
+        },
+        {
+            "name": "Zerochan: Sync Task",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/booru/zerochan/zerochan_scraper.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--mode", "sync",
+                "--task-path", "${workspaceFolder}/debug_downloads/honma_meiko",
+                "--throttle", "2.5",
+                "--username", "${input:username}",
+                "--password", "${input:password}"
+            ],
+            "justMyCode": false,
+            "cwd": "${workspaceFolder}/booru/zerochan"
+        },
+        {
+            "name": "Zerochan: Custom Keywords (Prompt)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/booru/zerochan/zerochan_scraper.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--mode", "new",
+                "--keywords", "${input:keywords}",
+                "--storage-path", "${workspaceFolder}/debug_downloads",
+                "--throttle", "2.5",
+                "--username", "${input:username}",
+                "--password", "${input:password}"
+            ],
+            "justMyCode": false,
+            "cwd": "${workspaceFolder}/booru/zerochan"
+        },
+        {
+            "name": "Zerochan: Current File (Test)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "cwd": "${fileDirname}"
+        }
+    ],
+    "inputs": [
+        {
+            "id": "keywords",
+            "type": "promptString",
+            "description": "Enter search keywords",
+            "default": "Honma Meiko"
+        },
+        {
+            "id": "username",
+            "type": "promptString",
+            "description": "Enter Zerochan username",
+            "default": ""
+        },
+        {
+            "id": "password",
+            "type": "promptString",
+            "description": "Enter Zerochan password",
+            "default": ""
+        }
+    ]
+}
