@@ -277,6 +277,12 @@ class YandeScraper:
                 image_url = link.get('href')
                 break
         
+        # Fallback: if larger version not found, try to get image from .content div img
+        if not image_url:
+            content_img = soup.select_one('.content div img')
+            if content_img:
+                image_url = content_img.get('src')
+        
         if not image_url:
             raise ImageNotFoundError(f"Original image link not found for post {post_id}")
         
