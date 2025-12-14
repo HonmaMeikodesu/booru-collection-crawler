@@ -93,6 +93,89 @@
             "console": "integratedTerminal",
             "justMyCode": false,
             "cwd": "${fileDirname}"
+        },
+        {
+            "name": "E-Shuushuu: New Task (Debug)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/booru/e-shuushuu/eshuushuu_scraper.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--mode", "new",
+                "--tag-id", "76604",
+                "--storage-path", "${workspaceFolder}/debug_downloads",
+                "--throttle", "2.5"
+            ],
+            "justMyCode": false,
+            "cwd": "${workspaceFolder}/booru/e-shuushuu"
+        },
+        {
+            "name": "E-Shuushuu: New Task with Proxy",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/booru/e-shuushuu/eshuushuu_scraper.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--mode", "new",
+                "--tag-id", "76604",
+                "--storage-path", "${workspaceFolder}/debug_downloads",
+                "--throttle", "2.5",
+                "--proxy", "http://127.0.0.1:7890"
+            ],
+            "justMyCode": false,
+            "cwd": "${workspaceFolder}/booru/e-shuushuu"
+        },
+        {
+            "name": "E-Shuushuu: Resume Task",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/booru/e-shuushuu/eshuushuu_scraper.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--mode", "resume",
+                "--task-path", "${workspaceFolder}/debug_downloads/tag_76604",
+                "--throttle", "2.5"
+            ],
+            "justMyCode": false,
+            "cwd": "${workspaceFolder}/booru/e-shuushuu"
+        },
+        {
+            "name": "E-Shuushuu: Sync Task",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/booru/e-shuushuu/eshuushuu_scraper.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--mode", "sync",
+                "--task-path", "${workspaceFolder}/debug_downloads/tag_76604",
+                "--throttle", "2.5"
+            ],
+            "justMyCode": false,
+            "cwd": "${workspaceFolder}/booru/e-shuushuu"
+        },
+        {
+            "name": "E-Shuushuu: Custom Tag ID (Prompt)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/booru/e-shuushuu/eshuushuu_scraper.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--mode", "new",
+                "--tag-id", "${input:eshuushuuTagId}",
+                "--storage-path", "${workspaceFolder}/debug_downloads",
+                "--throttle", "2.5"
+            ],
+            "justMyCode": false,
+            "cwd": "${workspaceFolder}/booru/e-shuushuu"
+        },
+        {
+            "name": "E-Shuushuu: Current File (Test)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "cwd": "${fileDirname}"
         }
     ],
     "inputs": [
@@ -113,6 +196,12 @@
             "type": "promptString",
             "description": "Enter Zerochan password",
             "default": ""
+        },
+        {
+            "id": "eshuushuuTagId",
+            "type": "promptString",
+            "description": "Enter E-Shuushuu tag ID",
+            "default": "76604"
         }
     ]
 }
